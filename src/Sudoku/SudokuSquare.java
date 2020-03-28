@@ -5,23 +5,11 @@ package Sudoku;
  */
 public class SudokuSquare {
 
-    /**
-     * The number of the square.
-     * The number must be between 1 and 9.
-     */
-    private Integer number;
-
-    /**
-     * The pencil markings of a sudoku square.
-     * Each position corresponds for one number between 1 and 9,
-     * @see #setPencilMarkings(int)  for number correspondance.
-     */
+    private int number;
     private int[] pencilMarkings;
 
-    /**
-     * The DEFAULT_SIZE of the pencilMarkings.
-     */
     private final int DEFAULT_SIZE = 9;
+    private final int EMPTY_PENCIL_MARKING_VALUE = 0;
 
     /**
      * Creates a new SudokuSquare.
@@ -34,22 +22,14 @@ public class SudokuSquare {
 
     private void initializePencilMarkings() {
         for (int i = 0; i < pencilMarkings.length; i++) {
-            pencilMarkings[i] = 0;
+            pencilMarkings[i] = EMPTY_PENCIL_MARKING_VALUE;
         }
     }
 
-    /**
-     * Sets the number in the position.
-     * @param number the value of the number.
-     */
     public void setNumber(int number){
         this.number = number;
     }
 
-    /**
-     * Adds a pencil to the predisposed position.
-     * @param number the value of the number that wants to be marked.
-     */
     public void setPencilMarkings(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == 0){
@@ -58,14 +38,19 @@ public class SudokuSquare {
         }
     }
 
-    /**
-     * Removes a pencil to the predisposed position.
-     */
     public void removePencilMarking(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == number){
-
+                pencilMarkings[i] = EMPTY_PENCIL_MARKING_VALUE;
             }
         }
+    }
+
+    public void removePencilMarkings(){
+        initializePencilMarkings();
+    }
+
+    public int getNumber() {
+        return number;
     }
 }

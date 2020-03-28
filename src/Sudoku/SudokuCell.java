@@ -34,4 +34,37 @@ public class SudokuCell {
     public void removePencilMarkings(int i, int j){
         sudokuSquares[i][j].removePencilMarking(i);
     }
+
+    public boolean isNumberInCell(int number){
+        for (int i = 0; i < DEFAULT_SIZE; i++) {
+            for (int j = 0; j < DEFAULT_SIZE; j++) {
+                if (sudokuSquares[i][j].getNumber() == number){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isNumberInRow(int j, int number){
+        for (int i = 0; i < DEFAULT_SIZE; i++) {
+            if (sudokuSquares[i][j].getNumber() == number){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isNumberInColumn(int i, int number){
+        for (int j = 0; j < DEFAULT_SIZE; j++) {
+            if (sudokuSquares[i][j].getNumber() == number){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getNumberInIndex9(int i, int j){
+        return sudokuSquares[i][j].getNumber();
+    }
 }
