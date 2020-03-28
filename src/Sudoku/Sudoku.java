@@ -69,6 +69,10 @@ public class Sudoku {
                 transformSudokuIndexToSquareIndex(j));
     }
 
+    public boolean isNumberInCell(int i, int j, int number){
+        return sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
+                isNumberInCell(number);
+    }
     public boolean isNumberInRow(int j, int number){
         return  sudokuCells[0][transformSudokuIndexToCellIndex(j)].
                         isNumberInRow(transformSudokuIndexToSquareIndex(j),number) ||
@@ -80,11 +84,11 @@ public class Sudoku {
 
     public boolean isNumberInColumn(int i, int number){
         return  sudokuCells[transformSudokuIndexToCellIndex(i)][0].
-                isNumberInRow(transformSudokuIndexToSquareIndex(i),number) ||
+                isNumberInColumn(transformSudokuIndexToSquareIndex(i),number) ||
                 sudokuCells[transformSudokuIndexToCellIndex(i)][1].
-                        isNumberInRow(transformSudokuIndexToSquareIndex(i),number) ||
+                        isNumberInColumn(transformSudokuIndexToSquareIndex(i),number) ||
                 sudokuCells[transformSudokuIndexToCellIndex(i)][2].
-                        isNumberInRow(transformSudokuIndexToSquareIndex(i),number);
+                        isNumberInColumn(transformSudokuIndexToSquareIndex(i),number);
     }
 
     public int getNumberInIndex(int i, int j){
