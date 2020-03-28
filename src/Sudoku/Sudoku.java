@@ -43,12 +43,17 @@ public class Sudoku {
      * @param number number value of the number.
      */
     public void setNumberInPosition(int i, int j, int number){
-        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
-                setNumberInPosition(checkSquareValueOfIndex(i),
-                checkSquareValueOfIndex(j),number);
+        sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
+                setNumberInPosition(transformSudokuIndexToSquareIndex(i),
+                transformSudokuIndexToSquareIndex(j),number);
     }
 
-    private int checkCellValueOfIndex(int index) {
+    /**
+     *
+     * @param index
+     * @return
+     */
+    private int transformSudokuIndexToCellIndex(int index) {
         switch (index){
             case 0: case 3: case 6:
                 return 0;
@@ -60,17 +65,17 @@ public class Sudoku {
     }
 
     /**
-     * Transforms indexes to numbers between 0 and 2
+     * Transforms square indexes to numbers between 0 and 2.
      * @param index column or row index.
      * @return transformed index.
      */
-    private int checkSquareValueOfIndex(int index){
+    private int transformSudokuIndexToSquareIndex(int index){
         if (index < 3){
-            return index;
+            return 0;
         } else if (index < 6){
-            return index - 3;
+            return 1;
         } else {
-            return index - 6;
+            return 2;
         }
     }
 
@@ -92,9 +97,9 @@ public class Sudoku {
      * @param number number value of the number.
      */
     public void setPencilMarking(int i, int j,int number){
-        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
-                setPencilMarkings(checkSquareValueOfIndex(i),
-                checkSquareValueOfIndex(j),number);
+        sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
+                setPencilMarkings(transformSudokuIndexToSquareIndex(i),
+                transformSudokuIndexToSquareIndex(j),number);
     }
 
     /**
@@ -103,8 +108,8 @@ public class Sudoku {
      * @param j row index of the array.
      */
     public void removePencilMarking(int i, int j){
-        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
-                removePencilMarkings(checkSquareValueOfIndex(i),
-                checkSquareValueOfIndex(j));
+        sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
+                removePencilMarkings(transformSudokuIndexToSquareIndex(i),
+                transformSudokuIndexToSquareIndex(j));
     }
 }
