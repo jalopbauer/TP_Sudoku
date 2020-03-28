@@ -61,11 +61,7 @@ public class SudokuSquare {
     /**
      * Removes a pencil to the predisposed position.
      */
-    public void removePencilMarking(int number){
-        for (int i = 0; i < pencilMarkings.length; i++) {
-            if (pencilMarkings[i] == number){
+    public void removePencilMarkings(){
 
-            }
-        }
     }
 }
