@@ -1,5 +1,9 @@
 package Sudoku;
 /* Created by Jorge Lopez Bauer on 3/26/2020 */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Represents a 9x9 sudoku.
  */
@@ -57,7 +61,7 @@ public class Sudoku {
         quantityOfClues++;
     }
 
-    public void setPencilMarking(int i, int j,int number){
+    public void setPencilMarking(int i, int j, int number){
         sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 setPencilMarkings(transformSudokuIndexToSquareIndex(i),
                 transformSudokuIndexToSquareIndex(j),number);
@@ -73,6 +77,7 @@ public class Sudoku {
         return sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 isNumberInCell(number);
     }
+
     public boolean isNumberInRow(int j, int number){
         return  sudokuCells[0][transformSudokuIndexToCellIndex(j)].
                         isNumberInRow(transformSudokuIndexToSquareIndex(j),number) ||
@@ -97,4 +102,14 @@ public class Sudoku {
                 getNumberInIndex(transformSudokuIndexToCellIndex(i),
                         transformSudokuIndexToCellIndex(j));
     }
+
+    public int[] createPencilMarkings(int column, int row) {
+        int[] numbersForPencilMarking = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        for(int i = 1; i < 10; i++) {
+            if(isNumberInCell(column, row, i) || isNumberInColumn(column, i) || isNumberInRow(row, i))
+                numbersForPencilMarking[i] = 0;
+        }
+        return numbersForPencilMarking;
+    }
+
 }
