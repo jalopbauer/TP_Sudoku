@@ -11,6 +11,7 @@ public class SudokuSquare {
 
     private final int DEFAULT_SIZE = 9;
     private final int EMPTY_PENCIL_MARKING_VALUE = 0;
+
     /**
      * Creates a new SudokuSquare.
      * Sets the size of the pencilMarkings to the DEFAULT_SIZE.
@@ -26,18 +27,10 @@ public class SudokuSquare {
         }
     }
 
-    /**
-     * Sets the number in the position.
-     * @param number the value of the number.
-     */
     public void setNumber(int number){
         this.number = number;
     }
 
-    /**
-     * Adds a pencil to the predisposed position.
-     * @param number the value of the number that wants to be marked.
-     */
     public void setPencilMarkings(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == 0){
@@ -46,10 +39,6 @@ public class SudokuSquare {
         }
     }
 
-    /**
-     * Removes a pencil marking.
-     * @param number pencil marking to be removed.
-     */
     public void removePencilMarking(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == number){
@@ -58,10 +47,11 @@ public class SudokuSquare {
         }
     }
 
-    /**
-     * Removes pencil markings.
-     */
     public void removePencilMarkings(){
         initializePencilMarkings();
+    }
+
+    public int getNumber() {
+        return number;
     }
 }
