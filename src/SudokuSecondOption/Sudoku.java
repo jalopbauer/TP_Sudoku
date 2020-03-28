@@ -1,5 +1,7 @@
 package SudokuSecondOption;/* Created by Jorge Lopez Bauer on 3/28/2020 */
 
+import java.util.ArrayList;
+
 public class Sudoku {
 
     SudokuSquare[][] sudokuSquares;
@@ -62,4 +64,27 @@ public class Sudoku {
     public void removePencilMarkings(int i, int j){
         sudokuSquares[i][j].removePencilMarkings();
     }
+
+    public ArrayList<Integer> checkColumn(int column) {
+        ArrayList<Integer> numbersInColumn = new ArrayList<>();
+        for(int i = 0; i < 8; i++) {
+            if(sudokuSquares[column][i].getNumber() != 0) {
+                numbersInColumn.add(sudokuSquares[column][i].getNumber());
+            }
+        }
+        return numbersInColumn;
+    }
+
+    public ArrayList<Integer> checkRow(int row) {
+        ArrayList<Integer> numbersInColumn = new ArrayList<>();
+        for(int i = 0; i < 8; i++) {
+            if(sudokuSquares[i][row].getNumber() != 0) {
+                numbersInColumn.add(sudokuSquares[i][row].getNumber());
+            }
+        }
+        return numbersInColumn;
+    }
+
+   //public ArrayList<Integer> checkCell(int )
+
 }
