@@ -65,7 +65,7 @@ public class SudokuCell {
         return false;
     }
 
-    public int getNumberInIndex9(int i, int j){
+    public int getNumberInIndex(int i, int j){
         return sudokuSquares[i][j].getNumber();
     }
 }
