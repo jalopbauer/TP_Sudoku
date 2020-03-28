@@ -6,7 +6,7 @@ public class Sudoku {
     int quantityOfClues;
 
     private final int DEFAULT_SIZE = 9;
-    private final int EMPTY_SUDOKU_VALUE = 0;
+    private final int EMPTY_SQUARE_VALUE = 0;
 
 
     /**
@@ -17,7 +17,7 @@ public class Sudoku {
         this.sudokuSquares = new SudokuSquare[DEFAULT_SIZE][DEFAULT_SIZE];
         for (int i = 0; i < DEFAULT_SIZE; i++) {
             for (int j = 0; j < DEFAULT_SIZE; j++) {
-
+                sudokuSquares[i][j].setNumber(EMPTY_SQUARE_VALUE);
             }
         }
         this.quantityOfClues = 0;
@@ -54,6 +54,11 @@ public class Sudoku {
         sudokuSquares[i][j].removePencilMarking(number);
     }
 
+    /**
+     * Removes a pencil marking.
+     * @param i column index of the array.
+     * @param j row index of the array.
+     */
     public void removePencilMarkings(int i, int j){
         sudokuSquares[i][j].removePencilMarkings();
     }

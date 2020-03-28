@@ -6,22 +6,11 @@ package SudokuSecondOption;/* Created by Jorge Lopez Bauer on 3/28/2020 */
  */
 public class SudokuSquare {
 
-    /**
-     * The number of the square.
-     * The number must be between 1 and 9.
-     */
-    private Integer number;
-
-    /**
-     * The pencil markings of a sudoku square.
-     */
+    private int number;
     private int[] pencilMarkings;
 
-    /**
-     * The DEFAULT_SIZE of the pencilMarkings.
-     */
     private final int DEFAULT_SIZE = 9;
-
+    private final int EMPTY_PENCIL_MARKING_VALUE = 0;
     /**
      * Creates a new SudokuSquare.
      * Sets the size of the pencilMarkings to the DEFAULT_SIZE.
@@ -33,7 +22,7 @@ public class SudokuSquare {
 
     private void initializePencilMarkings() {
         for (int i = 0; i < pencilMarkings.length; i++) {
-            pencilMarkings[i] = 0;
+            pencilMarkings[i] = EMPTY_PENCIL_MARKING_VALUE;
         }
     }
 
@@ -44,7 +33,6 @@ public class SudokuSquare {
     public void setNumber(int number){
         this.number = number;
     }
-
 
     /**
      * Adds a pencil to the predisposed position.
@@ -60,15 +48,19 @@ public class SudokuSquare {
 
     /**
      * Removes a pencil marking.
+     * @param number pencil marking to be removed.
      */
     public void removePencilMarking(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == number){
-                pencilMarkings[i] = 0;
+                pencilMarkings[i] = EMPTY_PENCIL_MARKING_VALUE;
             }
         }
     }
 
+    /**
+     * Removes pencil markings.
+     */
     public void removePencilMarkings(){
         initializePencilMarkings();
     }
