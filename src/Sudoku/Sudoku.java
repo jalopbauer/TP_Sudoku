@@ -1,4 +1,4 @@
-package TPs.Sudoku.Sudoku;
+package Sudoku;
 /* Created by Jorge Lopez Bauer on 3/26/2020 */
 /**
  * Represents a 9x9 sudoku.

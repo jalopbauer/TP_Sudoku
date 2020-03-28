@@ -1,7 +1,8 @@
-package Sudoku;
-/* Created by Jorge Lopez Bauer on 3/26/2020 */
+package SudokuSecondOption;/* Created by Jorge Lopez Bauer on 3/28/2020 */
+
+
 /**
- * Represents a single number in a 3x3 sudoku.
+ * Represents a single number in a 9x9 sudoku.
  */
 public class SudokuSquare {
 
@@ -13,8 +14,6 @@ public class SudokuSquare {
 
     /**
      * The pencil markings of a sudoku square.
-     * Each position corresponds for one number between 1 and 9,
-     * @see #setPencilMarkings(int)  for number correspondance.
      */
     private int[] pencilMarkings;
 
@@ -59,12 +58,12 @@ public class SudokuSquare {
     }
 
     /**
-     * Removes a pencil to the predisposed position.
+     * Removes a pencil marking.
      */
     public void removePencilMarking(int number){
         for (int i = 0; i < pencilMarkings.length; i++) {
             if (pencilMarkings[i] == number){
-
+                pencilMarkings[i] = 0;
             }
         }
     }

@@ -1,4 +1,4 @@
-package TPs.Sudoku.Sudoku;
+package Sudoku;
 /* Created by Jorge Lopez Bauer on 3/26/2020 */
 /**
  * Represents a single cell 3x3 in a 9x9 sudoku.
@@ -55,6 +55,6 @@ public class SudokuCell {
      * @param j row index of the array.
      */
     public void removePencilMarkings(int i, int j){
-        sudokuSquares[i][j].removePencilMarkings();
+        sudokuSquares[i][j].removePencilMarking(i);
     }
 }
