@@ -5,14 +5,8 @@ package Sudoku;
  */
 public class SudokuCell {
 
-    /**
-     * The squares of a 3x3 cell.
-     */
     private SudokuSquare[][] sudokuSquares;
 
-    /**
-     * The default size of the sudokuSquares.
-     */
     private final int DEFAULT_SIZE = 3;
 
     /**
@@ -29,31 +23,14 @@ public class SudokuCell {
         }
     }
 
-    /**
-     * Sets number in a position.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     * @param number value of the number.
-     */
     public void setNumberInPosition(int i, int j, int number){
         sudokuSquares[i][j].setNumber(number);
     }
 
-    /**
-     * Sets number in a position of the pencilMarkings.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     * @param number value of the number.
-     */
     public void setPencilMarkings(int i, int j,int number){
         sudokuSquares[i][j].setPencilMarkings(number);
     }
 
-    /**
-     * Removes number in a position of the pencilMarkings.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     */
     public void removePencilMarkings(int i, int j){
         sudokuSquares[i][j].removePencilMarking(i);
     }

@@ -5,20 +5,10 @@ package Sudoku;
  */
 public class Sudoku {
 
-    /**
-     * The cells of a 9x9 sudoku.
-     */
     private SudokuCell[][] sudokuCells;
-
-    /**
-     * The DEFAULT_SIZE of the sudokuCells.
-     */
-    private final int DEFAULT_SIZE = 3;
-
-    /**
-     * The amount of clues given to solve the sudoku.
-     */
     int quantityOfClues;
+
+    private final int DEFAULT_SIZE = 3;
 
     /**
      * Sets the size of the sudokuSquares to the DEFAULT_SIZE.
@@ -35,24 +25,12 @@ public class Sudoku {
         this.quantityOfClues = 0;
     }
 
-    /**
-     * Sets number in a position.
-     * Calls method to transform indexes.
-     * @param i column index of the array.
-     * @param j j row index of the array.
-     * @param number number value of the number.
-     */
     public void setNumberInPosition(int i, int j, int number){
         sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 setNumberInPosition(transformSudokuIndexToSquareIndex(i),
                 transformSudokuIndexToSquareIndex(j),number);
     }
 
-    /**
-     *
-     * @param index
-     * @return
-     */
     private int transformSudokuIndexToCellIndex(int index) {
         switch (index){
             case 0: case 3: case 6:
@@ -64,11 +42,6 @@ public class Sudoku {
         }
     }
 
-    /**
-     * Transforms square indexes to numbers between 0 and 2.
-     * @param index column or row index.
-     * @return transformed index.
-     */
     private int transformSudokuIndexToSquareIndex(int index){
         if (index < 3){
             return 0;
@@ -79,34 +52,17 @@ public class Sudoku {
         }
     }
 
-    /**
-     * Sets a clue in a position.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     * @param number number value of the number.
-     */
     public void setClueInPosition(int i, int j, int number){
         setNumberInPosition(i,j,number);
         quantityOfClues++;
     }
 
-    /**
-     *Sets a pencil marking.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     * @param number number value of the number.
-     */
     public void setPencilMarking(int i, int j,int number){
         sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 setPencilMarkings(transformSudokuIndexToSquareIndex(i),
                 transformSudokuIndexToSquareIndex(j),number);
     }
 
-    /**
-     * Removes a pencil marking.
-     * @param i column index of the array.
-     * @param j row index of the array.
-     */
     public void removePencilMarking(int i, int j){
         sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 removePencilMarkings(transformSudokuIndexToSquareIndex(i),
