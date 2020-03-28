@@ -49,12 +49,13 @@ public class Sudoku {
     }
 
     private int checkCellValueOfIndex(int index) {
-        if (index < 3){
-            return 0;
-        } else if (index < 6){
-            return 1;
-        } else {
-            return 2;
+        switch (index){
+            case 0: case 3: case 6:
+                return 0;
+            case 1: case 4: case 7:
+                return 1;
+            default:
+                return 2;
         }
     }
 
@@ -91,8 +92,9 @@ public class Sudoku {
      * @param number number value of the number.
      */
     public void setPencilMarking(int i, int j,int number){
-        sudokuCells[i][j].setPencilMarkings(checkValueOfIndex(i),
-                checkValueOfIndex(j),number);
+        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
+                setPencilMarkings(checkSquareValueOfIndex(i),
+                checkSquareValueOfIndex(j),number);
     }
 
     /**
@@ -101,7 +103,8 @@ public class Sudoku {
      * @param j row index of the array.
      */
     public void removePencilMarking(int i, int j){
-        sudokuCells[i][j].removePencilMarkings(checkValueOfIndex(i),
-                checkValueOfIndex(j));
+        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
+                removePencilMarkings(checkSquareValueOfIndex(i),
+                checkSquareValueOfIndex(j));
     }
 }
