@@ -43,8 +43,19 @@ public class Sudoku {
      * @param number number value of the number.
      */
     public void setNumberInPosition(int i, int j, int number){
-        sudokuCells[i][j].setNumberInPosition(checkValueOfIndex(i),
-                checkValueOfIndex(j),number);
+        sudokuCells[checkCellValueOfIndex(i)][checkCellValueOfIndex(j)].
+                setNumberInPosition(checkSquareValueOfIndex(i),
+                checkSquareValueOfIndex(j),number);
+    }
+
+    private int checkCellValueOfIndex(int index) {
+        if (index < 3){
+            return 0;
+        } else if (index < 6){
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     /**
@@ -52,7 +63,7 @@ public class Sudoku {
      * @param index column or row index.
      * @return transformed index.
      */
-    private int checkValueOfIndex(int index){
+    private int checkSquareValueOfIndex(int index){
         if (index < 3){
             return index;
         } else if (index < 6){
