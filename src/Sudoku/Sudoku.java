@@ -68,4 +68,33 @@ public class Sudoku {
                 removePencilMarkings(transformSudokuIndexToSquareIndex(i),
                 transformSudokuIndexToSquareIndex(j));
     }
+
+    public boolean isNumberInCell(int i, int j, int number){
+        return sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
+                isNumberInCell(number);
+    }
+    public boolean isNumberInRow(int j, int number){
+        return  sudokuCells[0][transformSudokuIndexToCellIndex(j)].
+                        isNumberInRow(transformSudokuIndexToSquareIndex(j),number) ||
+                sudokuCells[1][transformSudokuIndexToCellIndex(j)].
+                        isNumberInRow(transformSudokuIndexToSquareIndex(j),number) ||
+                sudokuCells[2][transformSudokuIndexToCellIndex(j)].
+                        isNumberInRow(transformSudokuIndexToSquareIndex(j),number);
+    }
+
+    public boolean isNumberInColumn(int i, int number){
+        return  sudokuCells[transformSudokuIndexToCellIndex(i)][0].
+                isNumberInColumn(transformSudokuIndexToSquareIndex(i),number) ||
+                sudokuCells[transformSudokuIndexToCellIndex(i)][1].
+                        isNumberInColumn(transformSudokuIndexToSquareIndex(i),number) ||
+                sudokuCells[transformSudokuIndexToCellIndex(i)][2].
+                        isNumberInColumn(transformSudokuIndexToSquareIndex(i),number);
+    }
+
+    public int getNumberInIndex(int i, int j){
+        return sudokuCells[transformSudokuIndexToCellIndex(i)]
+                [transformSudokuIndexToCellIndex(j)].
+                getNumberInIndex(transformSudokuIndexToCellIndex(i),
+                        transformSudokuIndexToCellIndex(j));
+    }
 }
