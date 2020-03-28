@@ -45,6 +45,7 @@ public class SudokuSquare {
         this.number = number;
     }
 
+
     /**
      * Adds a pencil to the predisposed position.
      * @param number the value of the number that wants to be marked.
@@ -66,5 +67,9 @@ public class SudokuSquare {
                 pencilMarkings[i] = 0;
             }
         }
+    }
+
+    public void removePencilMarkings(){
+        initializePencilMarkings();
     }
 }

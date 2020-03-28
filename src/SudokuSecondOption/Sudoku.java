@@ -25,13 +25,23 @@ public class Sudoku {
 
     /**
      * Sets number in a position.
-     * Calls method to transform indexes.
      * @param i column index of the array.
      * @param j j row index of the array.
      * @param number value of the sudokuSquare.
      */
     public void setNumberInPosition(int i, int j, int number){
         sudokuSquares[i][j].setNumber(number);
+    }
+
+
+    /**
+     *Sets a pencil marking.
+     * @param i column index of the array.
+     * @param j row index of the array.
+     * @param number value of the number.
+     */
+    public void setPencilMarking(int i, int j,int number){
+        sudokuSquares[i][j].setPencilMarkings(number);
     }
 
     /**
@@ -42,5 +52,9 @@ public class Sudoku {
      */
     public void removePencilMarking(int i, int j, int number){
         sudokuSquares[i][j].removePencilMarking(number);
+    }
+
+    public void removePencilMarkings(int i, int j){
+        sudokuSquares[i][j].removePencilMarkings();
     }
 }
