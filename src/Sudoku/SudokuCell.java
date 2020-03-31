@@ -68,4 +68,8 @@ public class SudokuCell {
     public int getNumberInIndex(int i, int j){
         return sudokuSquares[i][j].getNumber();
     }
+
+    public boolean isEmptyInIndex(int i, int j) {
+        return sudokuSquares[i][j].isEmpty();
+    }
 }
