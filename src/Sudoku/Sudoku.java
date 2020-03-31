@@ -1,9 +1,6 @@
 package Sudoku;
 /* Created by Jorge Lopez Bauer on 3/26/2020 */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * Represents a 9x9 sudoku.
  */
