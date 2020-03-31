@@ -102,9 +102,10 @@ public class Sudoku {
 
     public int[] createPencilMarkings(int column, int row) {
         int[] numbersForPencilMarking = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        for(int i = 1; i < 10; i++) {
-            if(isNumberInCell(column, row, i) || isNumberInColumn(column, i) || isNumberInRow(row, i))
+        for(int i = 0; i < 9; i++) {
+            if(isNumberInCell(column, row, i) || isNumberInColumn(column, i) || isNumberInRow(row, i)) {
                 numbersForPencilMarking[i] = 0;
+            }
         }
         return numbersForPencilMarking;
     }

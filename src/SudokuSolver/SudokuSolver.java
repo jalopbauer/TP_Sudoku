@@ -14,6 +14,7 @@ public class SudokuSolver {
 
     public Sudoku solveSudoku(Sudoku sudoku){
         numbersInserted = sudoku.getQuantityOfClues();
+        int quantityOfTimesPassed = 0;
         while (numbersInserted < columnSizeOfSudoku * rowSizeOfSudoku){
             for (int i = 0; i < columnSizeOfSudoku; i++) {
                 for (int j = 0; j < rowSizeOfSudoku; j++) {
@@ -26,6 +27,7 @@ public class SudokuSolver {
                                 number = pencilMarkings[k];
                                 k++;
                             }
+                            System.out.println(number);
                             sudoku.setNumberInPosition(i, j, number);
                             ++numbersInserted;
                         } else {
@@ -34,6 +36,7 @@ public class SudokuSolver {
                     }
                 }
             }
+            System.out.println("Quantity of times passed:" + quantityOfTimesPassed);
         }
         return sudoku;
     }
