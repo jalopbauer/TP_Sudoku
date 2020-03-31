@@ -28,8 +28,8 @@ public class SudokuCell {
         sudokuSquares[i][j].setNumber(number);
     }
 
-    public void setPencilMarkings(int i, int j,int number){
-        sudokuSquares[i][j].setPencilMarkings(number);
+    public void setPencilMarkings(int i, int j,int[] pencilMarkings){
+        sudokuSquares[i][j].setPencilMarkings(pencilMarkings);
     }
 
     public void removePencilMarkings(int i, int j){
