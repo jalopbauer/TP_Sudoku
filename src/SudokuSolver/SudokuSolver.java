@@ -17,12 +17,20 @@ public class SudokuSolver {
         while (numbersInserted < columnSizeOfSudoku * rowSizeOfSudoku){
             for (int i = 0; i < columnSizeOfSudoku; i++) {
                 for (int j = 0; j < rowSizeOfSudoku; j++) {
-                    int[] pencilMarkings = sudoku.createPencilMarkings(i,j);
-                    if (amountOfPencilMarkings(pencilMarkings) == 1){
-                        sudoku.setNumberInPosition(i,j,pencilMarkings[0]);
-                        ++numbersInserted;
-                    } else {
-                        sudoku.setPencilMarking(i, j, sudoku.createPencilMarkings(i, j));
+                    if (sudoku.isEmptyInIndex(i,j)) {
+                        int[] pencilMarkings = sudoku.createPencilMarkings(i, j);
+                        if (amountOfPencilMarkings(pencilMarkings) == 1) {
+                            int number = 0;
+                            while (number == 0) {
+                                int k = 0;
+                                number = pencilMarkings[k];
+                                k++;
+                            }
+                            sudoku.setNumberInPosition(i, j, number);
+                            ++numbersInserted;
+                        } else {
+                            sudoku.setPencilMarking(i, j, sudoku.createPencilMarkings(i, j));
+                        }
                     }
                 }
             }

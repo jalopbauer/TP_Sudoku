@@ -112,4 +112,11 @@ public class Sudoku {
     public int getQuantityOfClues() {
         return quantityOfClues;
     }
+
+    public boolean isEmptyInIndex(int i, int j) {
+        return sudokuCells[transformSudokuIndexToCellIndex(i)]
+                [transformSudokuIndexToCellIndex(j)].
+                isEmptyInIndex(transformSudokuIndexToCellIndex(i),
+                        transformSudokuIndexToCellIndex(j));
+    }
 }
