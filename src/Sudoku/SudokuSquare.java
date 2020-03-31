@@ -5,7 +5,7 @@ package Sudoku;
  */
 public class SudokuSquare {
 
-    private Integer number;
+    private int number;
     private int[] pencilMarkings;
 
     private final int DEFAULT_SIZE = 9;
@@ -17,6 +17,7 @@ public class SudokuSquare {
      */
     public SudokuSquare() {
         pencilMarkings = new int[DEFAULT_SIZE];
+        number = 0;
         initializePencilMarkings();
     }
 
@@ -43,6 +44,6 @@ public class SudokuSquare {
     }
 
     public boolean isEmpty(){
-        return number == null;
+        return number == 0;
     }
 }

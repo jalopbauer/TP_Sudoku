@@ -20,7 +20,7 @@ public class Sudoku {
         this.sudokuCells = new SudokuCell[DEFAULT_SIZE][DEFAULT_SIZE];
         for (int i = 0; i < DEFAULT_SIZE; i++) {
             for (int j = 0; j < DEFAULT_SIZE; j++) {
-
+                sudokuCells[i][j] = new SudokuCell();
             }
         }
         this.quantityOfClues = 0;
