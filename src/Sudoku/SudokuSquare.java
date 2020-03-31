@@ -30,20 +30,8 @@ public class SudokuSquare {
         this.number = number;
     }
 
-    public void setPencilMarkings(int number){
-        for (int i = 0; i < pencilMarkings.length; i++) {
-            if (pencilMarkings[i] == 0){
-                pencilMarkings[i] = number;
-            }
-        }
-    }
-
-    public void removePencilMarking(int number){
-        for (int i = 0; i < pencilMarkings.length; i++) {
-            if (pencilMarkings[i] == number){
-                pencilMarkings[i] = EMPTY_PENCIL_MARKING_VALUE;
-            }
-        }
+    public void setPencilMarkings(int[] pencilMarkings){
+        this.pencilMarkings = pencilMarkings;
     }
 
     public void removePencilMarkings(){

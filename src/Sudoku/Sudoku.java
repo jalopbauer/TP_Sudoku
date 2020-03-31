@@ -7,7 +7,7 @@ package Sudoku;
 public class Sudoku {
 
     private SudokuCell[][] sudokuCells;
-    int quantityOfClues;
+    private int quantityOfClues;
 
     private final int DEFAULT_SIZE = 3;
 
@@ -58,10 +58,10 @@ public class Sudoku {
         quantityOfClues++;
     }
 
-    public void setPencilMarking(int i, int j, int number){
+    public void setPencilMarking(int i, int j, int[] pencilMarkings){
         sudokuCells[transformSudokuIndexToCellIndex(i)][transformSudokuIndexToCellIndex(j)].
                 setPencilMarkings(transformSudokuIndexToSquareIndex(i),
-                transformSudokuIndexToSquareIndex(j),number);
+                transformSudokuIndexToSquareIndex(j),pencilMarkings);
     }
 
     public void removePencilMarking(int i, int j){
@@ -109,4 +109,7 @@ public class Sudoku {
         return numbersForPencilMarking;
     }
 
+    public int getQuantityOfClues() {
+        return quantityOfClues;
+    }
 }
