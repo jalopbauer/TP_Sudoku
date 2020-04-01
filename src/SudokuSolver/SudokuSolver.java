@@ -14,7 +14,7 @@ public class SudokuSolver {
 
     public Sudoku solveSudoku(Sudoku sudoku){
         numbersInserted = sudoku.getQuantityOfClues();
-        while (numbersInserted <= columnSizeOfSudoku * rowSizeOfSudoku){
+        while (numbersInserted < columnSizeOfSudoku * rowSizeOfSudoku){
             for (int i = 0; i < columnSizeOfSudoku; i++) {
                 for (int j = 0; j < rowSizeOfSudoku; j++) {
                     if (sudoku.isEmptyInIndex(i,j)) {
