@@ -14,27 +14,6 @@ class SudokuSolverTest {
         assertTrue(solver.compareSudokus(solver.solveSudoku(sudoku2()),sudoku1()));
     }
 
-    @org.junit.jupiter.api.Test
-    void isNumberInCell(){
-        Sudoku sudoku = sudoku1();
-        assertTrue(sudoku.isNumberInCell(4,2,2));
-        assertFalse(sudoku.isNumberInCell(0,0,9));
-        assertTrue(sudoku.isNumberInCell(8,0,1));
-        assertFalse(sudoku.isNumberInCell(0,3,6));
-    }
-
-    @org.junit.jupiter.api.Test
-    void isNumberInRow(){
-        Sudoku sudoku = sudoku2();
-        assertFalse(sudoku.isNumberInRow(4,1));
-        assertTrue(sudoku.isNumberInRow(4,4));
-        assertTrue(sudoku.isNumberInRow(4,6));
-        assertTrue(sudoku.isNumberInRow(4,9));
-
-    }
-
-
-
     Sudoku sudoku2() {
         Sudoku sudoku = new Sudoku();
         sudoku.setClueInPosition(0,1,6);
