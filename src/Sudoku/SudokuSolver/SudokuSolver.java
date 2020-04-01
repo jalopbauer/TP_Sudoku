@@ -1,4 +1,4 @@
-package SudokuSolver;
+package Sudoku.SudokuSolver;
 /* Created by Jorge Lopez Bauer on 3/31/2020 */
 
 import Sudoku.Sudoku;

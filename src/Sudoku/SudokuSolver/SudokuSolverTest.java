@@ -1,4 +1,4 @@
-package SudokuSolver;
+package Sudoku.SudokuSolver;
 
 import Sudoku.Sudoku;
 
@@ -11,6 +11,7 @@ class SudokuSolverTest {
     @org.junit.jupiter.api.Test
     void solveSudoku() {
         SudokuSolver solver = new SudokuSolver(9,9);
+
         assertTrue(solver.compareSudokus(solver.solveSudoku(sudoku1ToFill()),sudoku1Full()));
         //no pone ni uno. es el ultimo de la pag. fijense si hice algo mal.
         //assertTrue(solver.compareSudokus(solver.solveSudoku(sudoku2ToFill()),sudoku2Full()));
