@@ -14,29 +14,27 @@ public class SudokuSolver {
 
     public Sudoku solveSudoku(Sudoku sudoku){
         numbersInserted = sudoku.getQuantityOfClues();
-        int quantityOfTimesPassed = 0;
-        while (numbersInserted < columnSizeOfSudoku * rowSizeOfSudoku){
+        while (numbersInserted <= columnSizeOfSudoku * rowSizeOfSudoku){
             for (int i = 0; i < columnSizeOfSudoku; i++) {
                 for (int j = 0; j < rowSizeOfSudoku; j++) {
                     if (sudoku.isEmptyInIndex(i,j)) {
                         int[] pencilMarkings = sudoku.createPencilMarkings(i, j);
                         if (amountOfPencilMarkings(pencilMarkings) == 1) {
                             int number = 0;
+                            int k = 0;
                             while (number == 0) {
-                                int k = 0;
                                 number = pencilMarkings[k];
                                 k++;
                             }
-                            System.out.println(number);
                             sudoku.setNumberInPosition(i, j, number);
                             ++numbersInserted;
+                            System.out.println("i " + i + " ," + "j " + j + " ," + "number " + number);
                         } else {
                             sudoku.setPencilMarking(i, j, sudoku.createPencilMarkings(i, j));
                         }
                     }
                 }
             }
-            System.out.println("Quantity of times passed:" + quantityOfTimesPassed);
         }
         return sudoku;
     }
@@ -49,5 +47,18 @@ public class SudokuSolver {
             }
         }
         return amountOfPencilMarkins;
+    }
+
+    boolean compareSudokus(Sudoku sudoku1, Sudoku sudoku2){
+        for (int i = 0; i < columnSizeOfSudoku; i++) {
+            for (int j = 0; j < rowSizeOfSudoku; j++) {
+                if (sudoku1.getNumberInIndex(i,j) != sudoku2.getNumberInIndex(i,j)){
+                    System.out.println(i + "     " + j);
+                    return false;
+                }
+
+            }
+        }
+        return true;
     }
 }

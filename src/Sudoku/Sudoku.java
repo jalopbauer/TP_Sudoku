@@ -8,7 +8,6 @@ public class Sudoku {
 
     private SudokuCell[][] sudokuCells;
     private int quantityOfClues;
-
     private final int DEFAULT_SIZE = 3;
 
     /**
@@ -32,7 +31,7 @@ public class Sudoku {
                 transformSudokuIndexToSquareIndex(j),number);
     }
 
-    private int transformSudokuIndexToCellIndex(int index) {
+    private int transformSudokuIndexToSquareIndex (int index) {
         switch (index){
             case 0: case 3: case 6:
                 return 0;
@@ -43,7 +42,7 @@ public class Sudoku {
         }
     }
 
-    private int transformSudokuIndexToSquareIndex(int index){
+    private int transformSudokuIndexToCellIndex(int index){
         if (index < 3){
             return 0;
         } else if (index < 6){
@@ -96,14 +95,16 @@ public class Sudoku {
     public int getNumberInIndex(int i, int j){
         return sudokuCells[transformSudokuIndexToCellIndex(i)]
                 [transformSudokuIndexToCellIndex(j)].
-                getNumberInIndex(transformSudokuIndexToCellIndex(i),
-                        transformSudokuIndexToCellIndex(j));
+                getNumberInIndex(transformSudokuIndexToSquareIndex(i),
+                        transformSudokuIndexToSquareIndex(j));
     }
 
     public int[] createPencilMarkings(int column, int row) {
         int[] numbersForPencilMarking = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         for(int i = 0; i < 9; i++) {
-            if(isNumberInCell(column, row, i) || isNumberInColumn(column, i) || isNumberInRow(row, i)) {
+            if (isNumberInCell(column, row, numbersForPencilMarking[i]) ||
+                    isNumberInColumn(column, numbersForPencilMarking[i]) ||
+                    isNumberInRow(row, numbersForPencilMarking[i])) {
                 numbersForPencilMarking[i] = 0;
             }
         }
@@ -117,7 +118,7 @@ public class Sudoku {
     public boolean isEmptyInIndex(int i, int j) {
         return sudokuCells[transformSudokuIndexToCellIndex(i)]
                 [transformSudokuIndexToCellIndex(j)].
-                isEmptyInIndex(transformSudokuIndexToCellIndex(i),
-                        transformSudokuIndexToCellIndex(j));
+                isEmptyInIndex(transformSudokuIndexToSquareIndex(i),
+                        transformSudokuIndexToSquareIndex(j));
     }
 }
