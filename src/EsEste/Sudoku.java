@@ -15,7 +15,7 @@ public class Sudoku {
         sudoku = new int[columnLength][rowLength];
         for (int columnIndex = 0; columnIndex < columnLength; columnIndex++) {
             for (int rowIndex = 0; rowIndex < rowLength; rowIndex++) {
-                sudoku[columnIndex][rowIndex] = 0;
+                sudoku[columnIndex][rowIndex] = EMPTY_SQUARE_VALUE;
             }
         }
     }
@@ -43,7 +43,7 @@ public class Sudoku {
 
     private boolean isNumberPossibleInColumn(int columnIndex, int number){
         for (int rowIndex = 0; rowIndex < rowLength; rowIndex++) {
-            if (number == sudoku[rowIndex][columnIndex]){
+            if (number == sudoku[columnIndex][rowIndex]){
                 return false;
             }
         }
@@ -51,13 +51,13 @@ public class Sudoku {
     }
 
     private boolean isNumberPossibleInCell(int columnIndex, int rowIndex, int number ) {
-        int cellColumnStartingPoint = (columnIndex%cellColumnLength)*cellColumnLength;
-        int cellRowStartingPoint = (rowIndex%cellRowLength)*cellRowLength;
+        int cellColumnStartingPoint = (columnIndex/cellColumnLength)*cellColumnLength;
+        int cellRowStartingPoint = (rowIndex/cellRowLength)*cellRowLength;
 
         for (int cellColumnIndex = 0; cellColumnIndex < cellColumnLength; cellColumnIndex++) {
             for (int cellRowIndex = 0; cellRowIndex < cellRowLength; cellRowIndex++) {
                 if (sudoku[cellColumnStartingPoint + cellColumnIndex]
-                          [cellRowStartingPoint + rowIndex] == number){
+                          [cellRowStartingPoint + cellRowIndex] == number){
                     return false;
                 }
             }
@@ -92,7 +92,7 @@ public class Sudoku {
     public boolean equals(Sudoku sudoku) {
         for (int columnIndex = 0; columnIndex < columnLength; columnIndex++) {
             for (int rowIndex = 0; rowIndex < rowLength; rowIndex++) {
-                if (this.getSudoku()[columnIndex][rowIndex] != this.getSudoku()[columnIndex][rowIndex]){
+                if (this.getSudoku()[columnIndex][rowIndex] != sudoku.getSudoku()[columnIndex][rowIndex]){
                     return false;
                 }
             }
