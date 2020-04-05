@@ -11,19 +11,24 @@ class SudokuTest {
     void solveSudoku() {
         Sudoku sudoku = sudoku1ToFill();
         assertTrue(sudoku.solveSudoku());
-        printSudoku(sudoku);
+        //printSudoku(sudoku);
         assertTrue(sudoku.isEqual(sudoku1Full()));
+        sudoku = sudoku2ToFill();
+        assertTrue(sudoku.solveSudoku());
+        printSudoku(sudoku);
+        assertTrue(sudoku.isEqual(sudoku2Full()));
     }
 
     private void printSudoku(Sudoku sudoku) {
         int[][] array = sudoku.getSudoku();
-        for(int i = 0; i<9; i++)
-        {
-            for(int j = 0; j<9; j++)
-            {
-                System.out.print(array[i][j]);
+        System.out.println("-------------------");
+        for(int i = 0; i < 9; i++) {
+            System.out.print("|");
+            for(int j = 0; j < 9; j++) {
+                System.out.print(array[j][i] + "|");
             }
             System.out.println();
+            System.out.println("-------------------");
         }
     }
 
@@ -205,21 +210,29 @@ class SudokuTest {
         Sudoku sudoku = new Sudoku();
         sudoku.setNumber(0,5,6);
         sudoku.setNumber(0,7,5);
+
         sudoku.setNumber(1,0,2);
         sudoku.setNumber(1,2,7);
-        sudoku.setNumber(1,7,8);
+        sudoku.setNumber(1,4,8);
+
         sudoku.setNumber(2,2,4);
+
         sudoku.setNumber(3,1,6);
         sudoku.setNumber(3,5,5);
+
         sudoku.setNumber(4,2,8);
         sudoku.setNumber(4,4,4);
         sudoku.setNumber(4,6,1);
+
         sudoku.setNumber(5,3,3);
         sudoku.setNumber(5,7,9);
+
         sudoku.setNumber(6,6,7);
+
         sudoku.setNumber(7,4,1);
         sudoku.setNumber(7,6,8);
         sudoku.setNumber(7,8,4);
+
         sudoku.setNumber(8,1,3);
         sudoku.setNumber(8,3,2);
         return sudoku;
@@ -302,7 +315,7 @@ class SudokuTest {
         //-------------------------------------
         //-------------------------------------
         //-------------------------------------
-        sudoku.setNumber(5,0,9);
+        sudoku.setNumber(5,0,7);
         sudoku.setNumber(5,1,1);
         sudoku.setNumber(5,2,5);
         sudoku.setNumber(5,3,3);

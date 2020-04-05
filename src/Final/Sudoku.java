@@ -66,6 +66,7 @@ public class Sudoku {
         for (int columnLength = 0; columnLength < 9; columnLength++) {
             for (int rowLength = 0; rowLength < 9; rowLength++) {
                 if (this.getSudoku()[columnLength][rowLength] != sudoku1Full.getSudoku()[columnLength][rowLength]){
+                    System.out.println(columnLength + "," + rowLength);
                     return false;
                 }
             }
