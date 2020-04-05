@@ -32,25 +32,25 @@ public class Sudoku {
         sudoku[columnIndex][rowIndex] = EMPTY_SQUARE_VALUE;
     }
 
-    private boolean isNumberInRow(int rowIndex, int number){
+    private boolean isNumberPossibleInRow(int rowIndex, int number){
         for (int columnIndex = 0; columnIndex < columnLength; columnIndex++) {
             if (number == sudoku[columnIndex][rowIndex]){
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
-    private boolean isNumberInColumn(int columnIndex, int number){
+    private boolean isNumberPossibleInColumn(int columnIndex, int number){
         for (int rowIndex = 0; rowIndex < rowLength; rowIndex++) {
             if (number == sudoku[rowIndex][columnIndex]){
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
-    private boolean isNumberInCell(int columnIndex, int rowIndex, int number ) {
+    private boolean isNumberPossibleInCell(int columnIndex, int rowIndex, int number ) {
         int cellColumnStartingPoint = (columnIndex%cellColumnLength)*cellColumnLength;
         int cellRowStartingPoint = (rowIndex%cellRowLength)*cellRowLength;
 
@@ -58,17 +58,17 @@ public class Sudoku {
             for (int cellRowIndex = 0; cellRowIndex < cellRowLength; cellRowIndex++) {
                 if (sudoku[cellColumnStartingPoint + cellColumnIndex]
                           [cellRowStartingPoint + rowIndex] == number){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     private boolean isNumberPossible(int columnIndex, int rowIndex, int number){
-        return !(isNumberInCell(columnIndex,rowIndex,number) ||
-                isNumberInColumn(columnIndex, number)) ||
-                isNumberInRow(rowIndex,number);
+        return (isNumberPossibleInCell(columnIndex,rowIndex,number) ||
+                isNumberPossibleInColumn(columnIndex, number)) ||
+                isNumberPossibleInRow(rowIndex,number);
     }
 
     public void solveSudoku(){

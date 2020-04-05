@@ -10,6 +10,7 @@ class SudokuTest {
     @Test
     void solveSudoku() {
         Sudoku sudoku = sudoku1ToFill();
+        sudoku.solveSudoku();
         assertTrue(sudoku.equals(sudoku1Full()));
         sudoku = sudoku2ToFill();
         assertTrue(sudoku.equals(sudoku2Full()));
